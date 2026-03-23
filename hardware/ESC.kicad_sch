@@ -1596,25 +1596,23 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "Q"
-				(at 5.08 1.27 0)
+			(property "Reference" "Q7"
+				(at 8.89 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Value" "Q_PMOS"
-				(at 5.08 -1.27 0)
+			(property "Value" "AGM60P30A"
+				(at 6.35 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
 				(at 5.08 2.54 0)
 				(effects
 					(font
@@ -1828,7 +1826,7 @@
 							)
 						)
 					)
-					(number "G"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1846,7 +1844,7 @@
 							)
 						)
 					)
-					(number "D"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1864,7 +1862,7 @@
 							)
 						)
 					)
-					(number "S"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -8359,6 +8357,16 @@
 	)
 	(wire
 		(pts
+			(xy 251.46 132.08) (xy 251.46 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73232f60-6a47-4f46-81fa-f5ba7e8ab4b8")
+	)
+	(wire
+		(pts
 			(xy 271.78 66.04) (xy 275.59 66.04)
 		)
 		(stroke
@@ -8956,6 +8964,16 @@
 			(type default)
 		)
 		(uuid "a1d73aca-3caa-4257-aa3a-7d87ed9708b7")
+	)
+	(wire
+		(pts
+			(xy 250.19 132.08) (xy 251.46 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2f00e7b-a191-446b-b424-349fcdfb0c9b")
 	)
 	(wire
 		(pts
@@ -10367,7 +10385,7 @@
 		)
 		(uuid "ff577d0c-80d8-4b13-a0c1-cc45a5322749")
 	)
-	(label "GLA"
+	(label "GLB"
 		(at 68.58 165.1 0)
 		(effects
 			(font
@@ -10577,7 +10595,7 @@
 		)
 		(uuid "2df92c01-2ab1-405b-a010-f760b626a137")
 	)
-	(label "GHA"
+	(label "GHB"
 		(at 68.58 144.78 0)
 		(effects
 			(font
@@ -10657,7 +10675,7 @@
 		)
 		(uuid "46d48237-67bd-4399-a404-f12fa22d59fe")
 	)
-	(label "GHA"
+	(label "GHC"
 		(at 123.19 144.78 0)
 		(effects
 			(font
@@ -10947,7 +10965,7 @@
 		)
 		(uuid "9138e469-800e-4e00-ade9-916d7f907dcd")
 	)
-	(label "SHA"
+	(label "SHB"
 		(at 68.58 154.94 0)
 		(effects
 			(font
@@ -11147,7 +11165,7 @@
 		)
 		(uuid "c4ec1b71-af4e-4ab7-b407-8674fb4b1155")
 	)
-	(label "SHA"
+	(label "SHC"
 		(at 123.19 154.94 0)
 		(effects
 			(font
@@ -11227,7 +11245,7 @@
 		)
 		(uuid "ddbf3cd6-88a1-49b6-a10a-645f63be06c6")
 	)
-	(label "GLA"
+	(label "GLC"
 		(at 123.19 165.1 0)
 		(effects
 			(font
@@ -11745,7 +11763,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 272.7452 33.02 0)
 			(effects
 				(font
@@ -13025,7 +13043,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 130.5052 30.48 0)
 			(effects
 				(font
@@ -13437,7 +13455,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 111.4552 173.99 0)
 			(effects
 				(font
@@ -14183,7 +14201,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 276.5552 74.93 0)
 			(effects
 				(font
@@ -14714,7 +14732,7 @@
 				)
 			)
 		)
-		(property "Value" "NCE55P30K"
+		(property "Value" "AGM60P30A"
 			(at 43.18 20.32 90)
 			(effects
 				(font
@@ -14722,7 +14740,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:TO-252-2"
+		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
 			(at 40.64 21.59 0)
 			(effects
 				(font
@@ -14749,13 +14767,13 @@
 				(hide yes)
 			)
 		)
-		(pin "D"
+		(pin "1"
 			(uuid "42acf637-4f64-40d7-b25e-8c2ddfdf9a34")
 		)
-		(pin "S"
+		(pin "3"
 			(uuid "bfa09333-76c8-419d-b7f8-fc5b15919051")
 		)
-		(pin "G"
+		(pin "2"
 			(uuid "24b4a297-b4fa-4079-94ea-e365ebdb7f19")
 		)
 		(instances
@@ -14864,7 +14882,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 58.1152 173.99 0)
 			(effects
 				(font
