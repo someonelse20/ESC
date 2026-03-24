@@ -6905,6 +6905,54 @@
 		(color 0 0 0 0)
 		(uuid "ff8cffa8-a93b-4555-bd52-46b075451497")
 	)
+	(no_connect
+		(at 130.81 85.09)
+		(uuid "165151b6-d2fa-45b1-af35-78938ee2980c")
+	)
+	(no_connect
+		(at 130.81 64.77)
+		(uuid "2a824be5-d0e9-48d1-b6ce-b58bccb052c1")
+	)
+	(no_connect
+		(at 130.81 82.55)
+		(uuid "3ac64880-9204-49d1-b36e-bbb148e8c806")
+	)
+	(no_connect
+		(at 130.81 80.01)
+		(uuid "3c995067-f72a-45ba-8b7d-c0dd8351aad2")
+	)
+	(no_connect
+		(at 130.81 59.69)
+		(uuid "76bfda23-2afa-4fa4-9024-99dd96ab4dbd")
+	)
+	(no_connect
+		(at 166.37 72.39)
+		(uuid "80df2ae7-8978-45c9-bc52-f36c81e09d4c")
+	)
+	(no_connect
+		(at 130.81 62.23)
+		(uuid "9e85908d-faf2-4469-833f-24d93fbd78bc")
+	)
+	(no_connect
+		(at 130.81 46.99)
+		(uuid "b1de42fe-5014-434b-b340-072e58c0a596")
+	)
+	(no_connect
+		(at 130.81 87.63)
+		(uuid "b4ee3d55-6351-451b-a19f-6176bfa33e44")
+	)
+	(no_connect
+		(at 130.81 90.17)
+		(uuid "c7f23f82-072f-41c8-bcd6-c648be30e00f")
+	)
+	(no_connect
+		(at 130.81 95.25)
+		(uuid "ced724d4-6bd9-4415-a2be-97a67dc16801")
+	)
+	(no_connect
+		(at 130.81 92.71)
+		(uuid "cf1446e5-615c-44af-966e-0210619153c9")
+	)
 	(wire
 		(pts
 			(xy 250.19 86.36) (xy 256.54 86.36)
@@ -11215,7 +11263,7 @@
 		)
 		(uuid "d2239369-f12d-40ca-9b1e-3650a7e731b6")
 	)
-	(label "SCLK"
+	(label "SCK"
 		(at 256.54 111.76 180)
 		(effects
 			(font
