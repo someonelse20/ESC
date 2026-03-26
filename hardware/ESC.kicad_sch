@@ -7188,6 +7188,12 @@
 		(uuid "691b2e8f-1bec-4657-9f28-37ed08dccf17")
 	)
 	(junction
+		(at 71.12 109.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6a54ccff-491c-4e1d-a304-da02f7c7d5e0")
+	)
+	(junction
 		(at 260.35 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7679,6 +7685,16 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 118.11) (xy 71.12 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "10ec6bfb-0242-41ae-8398-f83392c145d1")
+	)
+	(wire
+		(pts
 			(xy 123.19 186.69) (xy 130.81 186.69)
 		)
 		(stroke
@@ -7926,6 +7942,16 @@
 			(type default)
 		)
 		(uuid "2371d070-cdc3-4d74-8924-d7642ea3ad44")
+	)
+	(wire
+		(pts
+			(xy 71.12 109.22) (xy 71.12 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23d10d8f-fa7c-4fdc-81b6-df98f5bfc8aa")
 	)
 	(wire
 		(pts
@@ -9159,6 +9185,16 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 109.22) (xy 85.09 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84e2be25-e808-413e-8449-157226d71d02")
+	)
+	(wire
+		(pts
 			(xy 27.94 133.35) (xy 27.94 134.62)
 		)
 		(stroke
@@ -9719,7 +9755,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 109.22) (xy 78.74 109.22)
+			(xy 67.31 109.22) (xy 71.12 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11138,7 +11174,7 @@
 		(uuid "0d4acccc-855f-4a0c-8eb0-88c562f547e4")
 	)
 	(label "VIRTUAL_N"
-		(at 78.74 109.22 180)
+		(at 85.09 109.22 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20550,6 +20586,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 71.12 119.38 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b9b7d513-b6b5-49f6-bb2f-f83ff3116174")
+		(property "Reference" "#PWR054"
+			(at 71.12 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 71.12 123.19 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 71.12 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 71.12 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bb90c755-b1aa-4e11-806b-f4ba4eacfe88")
+		)
+		(instances
+			(project "ESC"
+				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
+					(reference "#PWR054")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 190.5 66.04 90)
 		(unit 1)
@@ -21524,6 +21637,87 @@
 			(project "ESC"
 				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
 					(reference "#PWR037")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 71.12 114.3 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d245a564-39bf-486b-9d1a-ad92b2c938b4")
+		(property "Reference" "C34"
+			(at 71.882 112.014 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1nF"
+			(at 71.882 116.586 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 72.0852 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 71.12 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f441d5be-195a-49be-a03a-c3c906100172")
+		)
+		(pin "2"
+			(uuid "a5cee2d4-d077-47d8-8523-31f579c14cf5")
+		)
+		(instances
+			(project "ESC"
+				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
+					(reference "C34")
 					(unit 1)
 				)
 			)
