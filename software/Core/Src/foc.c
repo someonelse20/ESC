@@ -18,14 +18,12 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "pid.h"
+#include "stm32g4xx_hal_adc.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
-#include <stddef.h>
 #include <stdint.h>
-#include <sys/types.h>
 
 /* USER CODE END Includes */
 
@@ -37,12 +35,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-// Configuration defines
 #define HAL_TIMEOUT 100
-#define MIN_RPM 100
-#define MAX_RPM 1000
 
-// System defines
 #define SYS_VOLT_INDEX 0
 #define BEMF_A_INDEX 1
 #define BEMF_B_INDEX 2
@@ -62,7 +56,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-DMA_HandleTypeDef hdma_adc1;
 
 SPI_HandleTypeDef hspi1;
 
@@ -72,13 +65,25 @@ TIM_HandleTypeDef htim15;
 
 /* USER CODE BEGIN PV */
 
-pid_control_t speed_pid;
+typedef struct {
+	const double kP;
+	const double kI;
+
+	double value;
+
+	double error;
+	double p_error;
+	double integral;
+} pi_t;
+
+pi_t speed_pi;
+pi_t q_torque_pi;
+pi_t d_torque_pi;
 
 double rotor_angle;
 double prev_rotor_angle;
 double prev_rotor_angle_time;
 double prev_rotor_speed_time;
-double zero_cross_time;
 double rotor_speed;
 double input_speed;
 
@@ -95,12 +100,6 @@ int8_t sequence[6][3] = { // 1 is VCC, -1 is GND, and 0 is floating
 	{-1, 0, 1},
 	{0, -1, 1}
 };
-volatile uint32_t *sequence_tim[3][2] = {
-	{&TIM1->CCR1, &TIM1->CCR2},
-	{&TIM1->CCR3, &TIM1->CCR4},
-	{&TIM2->CCR1, &TIM2->CCR2},
-};
-uint32_t phase_angles[] = {0, 120, 240};
 uint8_t step;
 uint8_t floating;
 
@@ -111,7 +110,6 @@ uint32_t adc_buf[9];
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM1_Init(void);
@@ -120,19 +118,24 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 // Helper functions
-static uint8_t sign(double value);
 static float process_adc(uint32_t raw_value);
-static float process_current(double raw_value);
-static double clamp(double value, double min, double max);
-static double map(double value, double in_min, double in_max, double out_min, double out_max);
 
 // Primary funcitons
-static double get_rotor_angle(uint8_t floating, double rotor_speed);
+static uint8_t set_gate_driver(void);
+
+static double get_rotor_angle(double rotor_bemf[3], double prev_rotor_bemf[3], double prev_rotor_time, double rotor_speed);
+static double get_rotor_speed(double rotor_angle, double prev_rotor_angle, double prev_rotor_time, double rotor_speed);
 static void get_rotor_bemf(double *rotor_bemf_p);
 static void get_rotor_current(double *rotor_current_p);
 
-static void drive_rotor(void);
-static void get_zero_crossing(double bemf[3], double prev_bemf[3]);
+static double update_pi(double process_value, double set_point, pi_t *pi);
+static void reset_pi(pi_t *pi);
+
+static void space_vector_pwm(double current[3]);
+static void park_transform(double in_current[3], double *out_current);
+static void clark_transform(double in_current[2], double *out_current);
+static void inv_park_transform(double in_current[2], double *out_current);
+static void inv_clark_transform(double in_current[2], double *out_current);
 
 static void break_rotor(void);
 static void startup_sequence(void);
@@ -152,7 +155,9 @@ int main(void)
 {
 
 	/* USER CODE BEGIN 1 */
-	reset_pid(&speed_pid);
+	reset_pi(&speed_pi);
+	reset_pi(&q_torque_pi);
+	reset_pi(&d_torque_pi);
 
 	/* USER CODE END 1 */
 
@@ -174,13 +179,16 @@ int main(void)
 
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
-	MX_DMA_Init();
 	MX_SPI1_Init();
 	MX_ADC1_Init();
 	MX_TIM1_Init();
 	MX_TIM15_Init();
 	MX_TIM2_Init();
 	/* USER CODE BEGIN 2 */
+
+	if (set_gate_driver() != HAL_OK) {
+		Error_Handler();
+	}
 
 	// Start polling ADC
 	HAL_ADC_Start_DMA(&hadc1, adc_buf, 9);
@@ -196,17 +204,26 @@ int main(void)
 
 		/* USER CODE BEGIN 3 */
 		get_rotor_bemf(rotor_bemf);
-		get_zero_crossing(rotor_bemf, prev_rotor_bemf);
-		rotor_angle = get_rotor_angle(floating, rotor_speed);
+		get_rotor_current(rotor_current);
+		rotor_angle = get_rotor_angle(rotor_bemf, prev_rotor_bemf, prev_rotor_angle_time, rotor_speed);
+		rotor_speed = get_rotor_speed(rotor_angle, prev_rotor_angle, prev_rotor_speed_time, rotor_speed);
 
-		loop_pid(&speed_pid, rotor_speed, input_speed);
+		double rotor_park[2];
+		double rotor_clarke[2];
+		clark_transform(rotor_current, rotor_clarke);
+		park_transform(rotor_clarke, rotor_park);
 
-		drive_rotor();
+		update_pi(rotor_speed, input_speed, &speed_pi);
+		update_pi(speed_pi.value, rotor_park[0], &q_torque_pi);
+		update_pi(0, rotor_park[1], &d_torque_pi);
 
-		// Update previous rotor bemf
-		for (int i = 0; i < 3; i++) {
-			prev_rotor_bemf[i] = rotor_bemf[i];
-		}
+		double set_current[] = {q_torque_pi.value, d_torque_pi.value};
+		double inv_park_current[2];
+		double inv_clark_current[3];
+		inv_park_transform(set_current, inv_park_current);
+		inv_clark_transform(inv_park_current, inv_clark_current);
+
+		space_vector_pwm(inv_clark_current);
 	}
 	/* USER CODE END 3 */
 }
@@ -687,23 +704,6 @@ static void MX_TIM15_Init(void)
 }
 
 /**
- * Enable DMA controller clock
- */
-static void MX_DMA_Init(void)
-{
-
-	/* DMA controller clock enable */
-	__HAL_RCC_DMAMUX1_CLK_ENABLE();
-	__HAL_RCC_DMA1_CLK_ENABLE();
-
-	/* DMA interrupt init */
-	/* DMA1_Channel1_IRQn interrupt configuration */
-	HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
-	HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
-
-}
-
-/**
  * @brief GPIO Initialization Function
  * @param None
  * @retval None
@@ -757,66 +757,22 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
-{
-	if (htim->Instance == TIM15)
-	{
-		uint32_t cycle_time = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
-
-		if (cycle_time == 0) {
-			return;
-		}
-
-		double duty_cycle = (HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2) * 100.0) / cycle_time;
-
-		// Convert duty cycle to rpm
-		rotor_speed = map(duty_cycle, 0, 100, MIN_RPM, MAX_RPM);
-	}
-}
-
-static uint8_t sign(double value) {
-	if (value > 0) {
-		return 1;
-	}
-
-	if (value < 0) {
-		return -1;
-	}
-
-	return 0;
-}
-
 static float process_adc(uint32_t raw_value) {
 	return (raw_value * ADC_RESOLUTION_12B) / 3.3;
 }
 
-static float process_current(double raw_value) {
-	return (1.65 - raw_value) / (20000000); // ((V_ref (3.3) / 2) - raw_value) / (gain (20) * R_sense (1000000))
+static uint8_t set_gate_driver(void) {
+
 }
 
-static double clamp(double value, double min, double max) {
-	if (value < min) {
-		return min;
+static double get_rotor_angle(double rotor_bemf[3], double prev_rotor_bemf[3], double prev_rotor_time, double rotor_speed) {
+	if (floating == 0) {
+		
 	}
-
-	if (value > max) {
-		return max;
-	}
-
-	return value;
 }
 
-static double map(double value, double in_min, double in_max, double out_min, double out_max) {
-	return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
+static double get_rotor_speed(double rotor_angle, double prev_rotor_angle, double prev_rotor_time, double rotor_speed) {
 
-static double get_rotor_angle(uint8_t floating, double rotor_speed) {
-	double angle = phase_angles[floating];
-
-	double rotor_time = HAL_GetTick() - zero_cross_time;
-	angle += rotor_speed * (rotor_time / 60000); // Convert rotor time to minutes.
-
-	return angle;
 }
 
 static void get_rotor_bemf(double *rotor_bemf_p) {
@@ -842,45 +798,34 @@ static void get_rotor_bemf(double *rotor_bemf_p) {
 }
 
 static void get_rotor_current(double *rotor_current_p) {
-	rotor_current_p[0] = process_current(process_adc(adc_buf[CURRENT_A_INDEX]));
-	rotor_current_p[1] = process_current(process_adc(adc_buf[CURRENT_B_INDEX]));
-	rotor_current_p[2] = process_current(process_adc(adc_buf[CURRENT_C_INDEX]));
+
 }
 
-static void drive_rotor(void) {
-	for (int i = 0; i < 3; i++) {
-		if (dir * sequence[step][i] == 0) {
-			floating = i;
-			*sequence_tim[i][0] = 0;
-			*sequence_tim[i][1] = 0;
-			continue;
-		}
-		if (dir * sequence[step][i] == 1) {
-			*sequence_tim[i][0] = clamp(speed_pid.output, 0, 100);
-			*sequence_tim[i][1] = 0;
-			continue;
-		}
-		if (dir * sequence[step][i] == -1) {
-			*sequence_tim[i][0] = 0;
-			*sequence_tim[i][1] = clamp(speed_pid.output, 0, 100);
-			continue;
-		}
-	}
+static double update_pi(double process_value, double set_point, pi_t *pi) {
+
 }
 
-static void get_zero_crossing(double bemf[3], double prev_bemf[3]) {
-	if (sign(rotor_bemf[floating] != sign(prev_rotor_bemf[floating]))) {
-		step++;
-		if (step > 6) {
-			step = 0;
-		}
+static void reset_pi(pi_t *pi) {
 
-		// Update speed when zero crossing is detected.
-		double time = HAL_GetTick() - zero_cross_time;
-		rotor_speed = 3 * (time / 60000); // Convert to RPM
+}
 
-		zero_cross_time = HAL_GetTick();
-	}
+static void space_vector_pwm(double current[3]) {
+
+}
+static void park_transform(double in_current[3], double *out_current) {
+
+}
+
+static void clark_transform(double in_current[2], double *out_current) {
+
+}
+
+static void inv_park_transform(double in_current[2], double *out_current) {
+
+}
+
+static void inv_clark_transform(double in_current[2], double *out_current) {
+
 }
 
 static void break_rotor(void) {
