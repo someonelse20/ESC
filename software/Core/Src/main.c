@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "pid.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -26,6 +25,8 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <sys/types.h>
+
+#include "pid.h"
 
 /* USER CODE END Includes */
 
@@ -37,12 +38,16 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-// Configuration defines
+// Configuration define
 #define HAL_TIMEOUT 100
 #define MIN_RPM 100
 #define MAX_RPM 1000
+#define BEMF_MIN_MARGIN 0.1 // How much above zero the BEMF voltage needs to be to read
+#define BEMF_MAX_MARGIN 1   // How much below sys voltage BEMF needs to be to read
+#define SET_ROTOR_TIME 10   // How long to wait in ms to set rotor to position
+#define MIN_DUTY_CYCLE 0.1  // Minimum pwm duty cycle to send to gate driver
 
-// System defines
+// System define
 #define SYS_VOLT_INDEX 0
 #define BEMF_A_INDEX 1
 #define BEMF_B_INDEX 2
@@ -72,6 +77,8 @@ TIM_HandleTypeDef htim15;
 
 /* USER CODE BEGIN PV */
 
+const uint32_t STARTUP_DELAY = MIN_RPM / 360000; // Convert RPM to 1/6 revolutions per ms
+
 pid_control_t speed_pid;
 
 double rotor_angle;
@@ -96,9 +103,9 @@ int8_t sequence[6][3] = { // 1 is VCC, -1 is GND, and 0 is floating
 	{0, -1, 1}
 };
 volatile uint32_t *sequence_tim[3][2] = {
-	{&TIM1->CCR1, &TIM1->CCR2},
-	{&TIM1->CCR3, &TIM1->CCR4},
-	{&TIM2->CCR1, &TIM2->CCR2},
+	{&TIM1->CCR4, &TIM1->CCR3},
+	{&TIM1->CCR2, &TIM1->CCR1},
+	{&TIM2->CCR2, &TIM2->CCR1},
 };
 uint32_t phase_angles[] = {0, 120, 240};
 uint8_t step;
@@ -123,6 +130,7 @@ static void MX_TIM2_Init(void);
 static uint8_t sign(double value);
 static float process_adc(uint32_t raw_value);
 static float process_current(double raw_value);
+static uint8_t check_valid_bemf(double bemf_v);
 static double clamp(double value, double min, double max);
 static double map(double value, double in_min, double in_max, double out_min, double out_max);
 
@@ -131,10 +139,10 @@ static double get_rotor_angle(uint8_t floating, double rotor_speed);
 static void get_rotor_bemf(double *rotor_bemf_p);
 static void get_rotor_current(double *rotor_current_p);
 
-static void drive_rotor(void);
+static void drive_rotor(uint8_t step, double duty_cycle);
 static void get_zero_crossing(double bemf[3], double prev_bemf[3]);
 
-static void break_rotor(void);
+static void set_rotor(void);
 static void startup_sequence(void);
 
 /* USER CODE END PFP */
@@ -185,6 +193,8 @@ int main(void)
 	// Start polling ADC
 	HAL_ADC_Start_DMA(&hadc1, adc_buf, 9);
 
+	set_rotor();
+
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -201,7 +211,7 @@ int main(void)
 
 		loop_pid(&speed_pid, rotor_speed, input_speed);
 
-		drive_rotor();
+		drive_rotor(step, clamp(speed_pid.output, MIN_DUTY_CYCLE, 100));
 
 		// Update previous rotor bemf
 		for (int i = 0; i < 3; i++) {
@@ -794,6 +804,18 @@ static float process_current(double raw_value) {
 	return (1.65 - raw_value) / (20000000); // ((V_ref (3.3) / 2) - raw_value) / (gain (20) * R_sense (1000000))
 }
 
+static uint8_t check_valid_bemf(double bemf_v) {
+	if (bemf_v < BEMF_MIN_MARGIN) {
+		return 1; // BEMF voltage is too small to read
+	}
+
+	if (bemf_v > adc_buf[SYS_VOLT_INDEX] - BEMF_MAX_MARGIN) {
+		return 2; // BEMF is to close to sys voltage, probably not true BEMF
+	}
+
+	return 0;
+}
+
 static double clamp(double value, double min, double max) {
 	if (value < min) {
 		return min;
@@ -824,19 +846,49 @@ static void get_rotor_bemf(double *rotor_bemf_p) {
 
 	// Phase A is floating
 	if (floating == 0) {
-		rotor_bemf_p[0] = process_adc(adc_buf[BEMF_A_INDEX]) - v_gnd;
+		double voltage = process_adc(adc_buf[BEMF_A_INDEX]) - v_gnd;
+
+		if (check_valid_bemf(voltage) == 1) { // BEMF is to small to detect, run startup sequence
+			startup_sequence();
+		}
+
+		if (check_valid_bemf(voltage) == 2) { // BEMF is sys voltage, reading ADC at the wrong time
+			return;
+		}
+
+		rotor_bemf_p[0] = voltage;
 		return;
 	}
 
 	// Phase B is floating
 	if (floating == 1) {
-		rotor_bemf_p[1] = process_adc(adc_buf[BEMF_B_INDEX]) - v_gnd;
+		double voltage = process_adc(adc_buf[BEMF_B_INDEX]) - v_gnd;
+
+		if (check_valid_bemf(voltage) == 1) { // BEMF is to small to detect, run startup sequence
+			startup_sequence();
+		}
+
+		if (check_valid_bemf(voltage) == 2) { // BEMF is sys voltage, reading ADC at the wrong time
+			return;
+		}
+
+		rotor_bemf_p[1] = voltage;
 		return;
 	}
 
 	// Phase C is floating
 	if (floating == 2) {
-		rotor_bemf_p[2] = process_adc(adc_buf[BEMF_C_INDEX]) - v_gnd;
+		double voltage = process_adc(adc_buf[BEMF_C_INDEX]) - v_gnd;
+
+		if (check_valid_bemf(voltage) == 1) { // BEMF is to small to detect, run startup sequence
+			startup_sequence();
+		}
+
+		if (check_valid_bemf(voltage) == 2) { // BEMF is sys voltage, reading ADC at the wrong time
+			return;
+		}
+
+		rotor_bemf_p[2] = voltage;
 		return;
 	}
 }
@@ -847,7 +899,7 @@ static void get_rotor_current(double *rotor_current_p) {
 	rotor_current_p[2] = process_current(process_adc(adc_buf[CURRENT_C_INDEX]));
 }
 
-static void drive_rotor(void) {
+static void drive_rotor(uint8_t step, double duty_cycle) {
 	for (int i = 0; i < 3; i++) {
 		if (dir * sequence[step][i] == 0) {
 			floating = i;
@@ -856,13 +908,13 @@ static void drive_rotor(void) {
 			continue;
 		}
 		if (dir * sequence[step][i] == 1) {
-			*sequence_tim[i][0] = clamp(speed_pid.output, 0, 100);
+			*sequence_tim[i][0] = duty_cycle;
 			*sequence_tim[i][1] = 0;
 			continue;
 		}
 		if (dir * sequence[step][i] == -1) {
 			*sequence_tim[i][0] = 0;
-			*sequence_tim[i][1] = clamp(speed_pid.output, 0, 100);
+			*sequence_tim[i][1] = duty_cycle;
 			continue;
 		}
 	}
@@ -883,12 +935,20 @@ static void get_zero_crossing(double bemf[3], double prev_bemf[3]) {
 	}
 }
 
-static void break_rotor(void) {
+static void set_rotor(void) {
+	// Set rotor to 0 degrees
 
+	drive_rotor(0, 100);
+
+	HAL_Delay(SET_ROTOR_TIME);
 }
 
 static void startup_sequence(void) {
+	drive_rotor(step, MIN_DUTY_CYCLE);
 
+	HAL_Delay(STARTUP_DELAY);
+
+	step++;
 }
 
 /* USER CODE END 4 */
