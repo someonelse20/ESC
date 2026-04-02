@@ -16993,7 +16993,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_APV_ANR5012"
+		(property "Footprint" "Inductor_SMD:L_APV_ANR6020"
 			(at 266.7 66.04 0)
 			(hide yes)
 			(show_name no)
