@@ -21655,7 +21655,7 @@
 		)
 	)
 	(gr_text "CCW"
-		(at 141.4 100.8 180)
+		(at 139.1 100.9 180)
 		(layer "B.SilkS")
 		(uuid "58368b67-721a-4420-bad1-d0dd46087f29")
 		(effects
@@ -22512,7 +22512,7 @@
 		(uuid "38ac62ac-b102-4e65-8ee7-40ee3d6fcc7d")
 	)
 	(via
-		(at 140 102.1)
+		(at 140.7 102.6)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
