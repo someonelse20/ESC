@@ -150,6 +150,16 @@
 			(outputdirectory "")
 		)
 	)
+	(variants
+		(variant
+			(name "One Sided")
+			(description "Simpler and cheaper but larger board.")
+		)
+		(variant
+			(name "Two Sided")
+			(description "More complex and expensive but smaller board.")
+		)
+	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "03696a54-bbc5-4167-80b5-badef65ead31")
@@ -7173,8 +7183,8 @@
 			(unit
 				(name "A")
 				(pins "20" "7" "5" "6" "2" "3" "4" "16" "17" "18" "40" "41" "42" "43"
-					"44" "45" "46" "22" "25" "26" "27" "28" "29" "1" "24" "36" "35" "23"
-					"47" "48" "19" "21" "8" "9" "10" "11" "12" "13" "14" "15" "30" "31"
+					"44" "45" "46" "22" "25" "26" "27" "28" "29" "1" "24" "36" "23" "47"
+					"35" "48" "19" "21" "8" "9" "10" "11" "12" "13" "14" "15" "30" "31"
 					"32" "33" "34" "37" "38" "39"
 				)
 			)

@@ -684,8 +684,17 @@
         "uuid": "4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
       }
     ],
-    "used_designators": "",
-    "variants": []
+    "used_designators": "U3",
+    "variants": [
+      {
+        "description": "Simpler and cheaper but larger board.",
+        "name": "One Sided"
+      },
+      {
+        "description": "More complex and expensive but smaller board.",
+        "name": "Two Sided"
+      }
+    ]
   },
   "sheets": [
     [
