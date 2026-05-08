@@ -7141,7 +7141,7 @@
 	)
 	(text "Gate Driver"
 		(exclude_from_sim no)
-		(at 187.706 73.406 0)
+		(at 185.166 73.406 0)
 		(effects
 			(font
 				(size 1.905 1.905)
