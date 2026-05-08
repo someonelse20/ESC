@@ -684,7 +684,7 @@
         "uuid": "4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
       }
     ],
-    "used_designators": "U3-4,C9-12,C14,C35-43,#PWR9-10,#PWR52-53,#PWR55-68,D1,L1,R28-33,TP1,FB1",
+    "used_designators": "",
     "variants": [
       {
         "description": "Simpler and cheaper but larger board.",

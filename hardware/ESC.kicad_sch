@@ -7049,6 +7049,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Buck Regulator"
+		(exclude_from_sim no)
+		(at 187.96 14.224 0)
+		(effects
+			(font
+				(size 1.905 1.905)
+			)
+		)
+		(uuid "3c92c269-510e-44cb-8fa3-4a18e789aa4a")
+	)
 	(text "Bulk Capacitance"
 		(exclude_from_sim no)
 		(at 49.784 51.562 0)
@@ -7091,7 +7101,7 @@
 	)
 	(text "Microcontroller"
 		(exclude_from_sim no)
-		(at 127.508 13.97 0)
+		(at 91.44 13.97 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -7128,6 +7138,16 @@
 			)
 		)
 		(uuid "b49f87e0-ab7d-4bd1-9505-13c54e657275")
+	)
+	(text "Gate Driver"
+		(exclude_from_sim no)
+		(at 187.706 73.406 0)
+		(effects
+			(font
+				(size 1.905 1.905)
+			)
+		)
+		(uuid "cf908f10-bc98-4af4-983d-27c6ed7f7950")
 	)
 	(text "Headers"
 		(exclude_from_sim no)
