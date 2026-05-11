@@ -4669,310 +4669,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Q_NMOS_1"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Q1"
-				(at 3.556 -3.302 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "AGM60P30AP"
-				(at 15.24 3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify right)
-				)
-			)
-			(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
-				(at 5.08 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "N-MOSFET transistor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "NMOS N-MOS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "Q_NMOS_1_0_1"
-				(polyline
-					(pts
-						(xy 0.254 1.905) (xy 0.254 -1.905)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 2.286) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0.508) (xy 0.762 -0.508)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.27) (xy 0.762 -2.286)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 1.651 0)
-					(radius 2.794)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 2.54) (xy 2.54 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.54 1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 2.54 -1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.921 0.381) (xy 3.683 0.381)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "Q_NMOS_1_1_1"
-				(pin passive line
-					(at 2.54 -5.08 90)
-					(length 2.54)
-					(name "S"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "G"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Q_NMOS_2"
 			(pin_numbers
 				(hide yes)
@@ -7238,12 +6934,6 @@
 		(uuid "2cff3aac-b0ec-48a5-94f1-116900411790")
 	)
 	(junction
-		(at 63.5 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2e7c8d92-7421-4962-8b17-ff6aab658c32")
-	)
-	(junction
 		(at 129.54 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7278,12 +6968,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5b8d873f-5c45-487a-8011-569eaa1734dc")
-	)
-	(junction
-		(at 63.5 69.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5c63e8cf-77f2-4d67-a23a-6ef9887d8d34")
 	)
 	(junction
 		(at 229.87 36.83)
@@ -7376,6 +7060,12 @@
 		(uuid "95a4af6f-19f0-4a37-bd18-90c084dd3659")
 	)
 	(junction
+		(at 201.93 146.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9a1d48a9-12b0-47b6-acd7-631c0efb2054")
+	)
+	(junction
 		(at 55.88 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7400,12 +7090,6 @@
 		(uuid "a53b2d89-196e-485b-93c2-ffbd711acd40")
 	)
 	(junction
-		(at 48.26 69.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a570dd13-964e-4d03-a396-a1da8a8a929d")
-	)
-	(junction
 		(at 201.93 125.73)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7428,12 +7112,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b04696a7-7859-48b4-b0ea-452bf0bd44f4")
-	)
-	(junction
-		(at 48.26 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b5b5d318-0c92-4382-9577-601e4f7ef0c1")
 	)
 	(junction
 		(at 49.53 168.91)
@@ -7524,12 +7202,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f0faed54-5345-4805-ae19-317bed6615b7")
-	)
-	(junction
-		(at 201.93 146.05)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f13afe60-8984-40b3-9619-1d138f70afb9")
 	)
 	(junction
 		(at 81.28 190.5)
@@ -8569,16 +8241,6 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 59.69) (xy 48.26 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "44ae3c8e-328b-458c-8939-029a2b3549f0")
-	)
-	(wire
-		(pts
 			(xy 95.25 168.91) (xy 95.25 170.18)
 		)
 		(stroke
@@ -8809,7 +8471,7 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 146.05) (xy 207.01 146.05)
+			(xy 201.93 146.05) (xy 214.63 146.05)
 		)
 		(stroke
 			(width 0)
@@ -9446,16 +9108,6 @@
 			(type default)
 		)
 		(uuid "87d3999a-4ce8-44ba-aafd-65627135180a")
-	)
-	(wire
-		(pts
-			(xy 40.64 69.85) (xy 48.26 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "88982569-3441-4287-ac2d-2aa355eebb5d")
 	)
 	(wire
 		(pts
@@ -10139,16 +9791,6 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 69.85) (xy 72.39 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b59ba79b-53c4-4b05-9b2b-15d9ef37c854")
-	)
-	(wire
-		(pts
 			(xy 135.89 137.16) (xy 135.89 138.43)
 		)
 		(stroke
@@ -10166,16 +9808,6 @@
 			(type default)
 		)
 		(uuid "b666bbf3-4483-4bec-aa7a-c49dcf72de5e")
-	)
-	(wire
-		(pts
-			(xy 63.5 59.69) (xy 72.39 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b66c2b2c-b3a5-4299-b3f1-5ab50597f02a")
 	)
 	(wire
 		(pts
@@ -10569,16 +10201,6 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 60.96) (xy 72.39 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d2f2b8cb-05fb-45ea-8a02-8db5765eaed7")
-	)
-	(wire
-		(pts
 			(xy 229.87 26.67) (xy 229.87 27.94)
 		)
 		(stroke
@@ -10739,13 +10361,23 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 146.05) (xy 201.93 146.05)
+			(xy 190.5 146.05) (xy 191.77 146.05)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "def76609-3608-4dcd-9acb-d261e0426006")
+	)
+	(wire
+		(pts
+			(xy 199.39 146.05) (xy 201.93 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df72363c-85b6-48a5-b7f5-44e40081c36f")
 	)
 	(wire
 		(pts
@@ -11019,26 +10651,6 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 60.96) (xy 40.64 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1743e7f-5399-4b61-a1a1-5132b124acfa")
-	)
-	(wire
-		(pts
-			(xy 40.64 68.58) (xy 40.64 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f17c8c17-8dbb-438f-a2f5-f3e78bb2efeb")
-	)
-	(wire
-		(pts
 			(xy 68.58 158.75) (xy 81.28 158.75)
 		)
 		(stroke
@@ -11216,16 +10828,6 @@
 			(type default)
 		)
 		(uuid "fcc2e441-5c55-4271-ab7d-925fa5e0b5bc")
-	)
-	(wire
-		(pts
-			(xy 72.39 68.58) (xy 72.39 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd15c7a1-5957-4327-a8a1-6158e976ac7b")
 	)
 	(wire
 		(pts
@@ -12507,7 +12109,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "20K"
+		(property "Value" "28K"
 			(at 246.38 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13068,8 +12670,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30AP"
-			(at 148.59 144.526 0)
+		(property "Value" "AGM60P30A"
+			(at 147.574 144.526 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13079,7 +12681,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "Diode_SMD:D_QFN_3.3x3.3mm_P0.65mm"
 			(at 138.43 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -13307,7 +12909,7 @@
 				)
 			)
 		)
-		(property "Value" "162K"
+		(property "Value" "226K"
 			(at 54.61 107.188 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13785,7 +13387,7 @@
 				)
 			)
 		)
-		(property "Value" "162K"
+		(property "Value" "226K"
 			(at 54.61 113.538 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13952,7 +13554,7 @@
 				)
 			)
 		)
-		(property "Value" "162K"
+		(property "Value" "226K"
 			(at 161.29 165.1 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14279,7 +13881,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF"
+		(property "Value" "15uF"
 			(at 255.27 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14290,7 +13892,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 254.9652 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -14449,7 +14051,7 @@
 				)
 			)
 		)
-		(property "Value" "162K"
+		(property "Value" "226K"
 			(at 54.61 100.838 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14859,8 +14461,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30AP"
-			(at 93.98 144.78 0)
+		(property "Value" "AGM60P30A"
+			(at 92.964 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14870,7 +14472,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "Diode_SMD:D_QFN_3.3x3.3mm_P0.65mm"
 			(at 83.82 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -15569,8 +15171,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30AP"
-			(at 40.64 165.1 0)
+		(property "Value" "AGM60P30A"
+			(at 39.624 165.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15580,7 +15182,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "Diode_SMD:D_QFN_3.3x3.3mm_P0.65mm"
 			(at 30.48 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -16053,7 +15655,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "Diode_SMD:D_QFN_3.3x3.3mm_P0.65mm"
 			(at 39.37 21.59 0)
 			(hide yes)
 			(show_name no)
@@ -16127,7 +15729,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF"
+		(property "Value" "1uF"
 			(at 200.66 100.33 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16138,7 +15740,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 200.9648 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -16695,7 +16297,7 @@
 				)
 			)
 		)
-		(property "Value" "22uH"
+		(property "Value" "27uH"
 			(at 240.03 35.052 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16705,7 +16307,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_APV_ANR6020"
+		(property "Footprint" "Inductor_SMD:L_APV_ANR4030"
 			(at 240.03 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -16935,7 +16537,7 @@
 				)
 			)
 		)
-		(property "Value" "162K"
+		(property "Value" "226K"
 			(at 64.77 29.21 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17022,7 +16624,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "20K"
+		(property "Value" "28K"
 			(at 104.14 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17505,7 +17107,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF"
+		(property "Value" "100nF"
 			(at 192.278 86.106 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17516,7 +17118,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 195.58 86.6648 0)
 			(hide yes)
 			(show_name no)
@@ -17828,7 +17430,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "20K"
+		(property "Value" "28K"
 			(at 62.23 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18904,6 +18506,91 @@
 		)
 	)
 	(symbol
+		(lib_name "Q_NMOS_2")
+		(lib_id "Device:Q_NMOS")
+		(at 25.4 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8484b505-f5e8-4279-8b92-4668af902e94")
+		(property "Reference" "Q1"
+			(at 28.956 151.892 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AGM60P30A"
+			(at 39.624 144.78 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_QFN_3.3x3.3mm_P0.65mm"
+			(at 30.48 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 25.4 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "N-MOSFET transistor"
+			(at 25.4 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9d63ef22-d6d2-402d-9e63-5d838593d140")
+		)
+		(pin "3"
+			(uuid "0fb7a44d-0c34-4200-ac3a-b7f36152aba5")
+		)
+		(pin "2"
+			(uuid "c2725667-e9b6-4dd5-8eee-82a3137c98d8")
+		)
+		(instances
+			(project "ESC"
+				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
+					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 102.87 163.83 0)
 		(unit 1)
@@ -18924,7 +18611,7 @@
 				)
 			)
 		)
-		(property "Value" "162K"
+		(property "Value" "226K"
 			(at 106.68 165.1 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18985,85 +18672,6 @@
 							(value "226K")
 						)
 					)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:FerriteBead")
-		(at 210.82 146.05 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8857b3f0-d92c-4f3a-bfd6-90cfb22aafa4")
-		(property "Reference" "FB1"
-			(at 204.978 142.24 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "FerriteBead"
-			(at 204.978 144.018 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
-			(at 210.82 144.272 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 210.82 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Ferrite bead"
-			(at 210.82 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "561b4c22-281f-41f0-8c06-778f295dd6f6")
-		)
-		(pin "1"
-			(uuid "2e7656a9-a234-4826-a90b-feb33dd1fdb0")
-		)
-		(instances
-			(project "ESC"
-				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
-					(reference "FB1")
-					(unit 1)
 				)
 			)
 		)
@@ -19537,6 +19145,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:FerriteBead")
+		(at 195.58 146.05 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8f5c1f6d-f3df-41a9-99ff-2b5bf7b69a94")
+		(property "Reference" "FB1"
+			(at 189.738 142.24 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "FerriteBead"
+			(at 189.738 144.018 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
+			(at 195.58 144.272 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 195.58 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Ferrite bead"
+			(at 195.58 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "31a44df7-b470-4786-aff0-e751c74f82e7")
+		)
+		(pin "1"
+			(uuid "680180ac-4902-4d43-b82c-500282c0e7cb")
+		)
+		(instances
+			(project "ESC"
+				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
+					(reference "FB1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 48.26 64.77 0)
 		(unit 1)
@@ -19640,7 +19327,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF"
+		(property "Value" "100nF"
 			(at 200.66 153.67 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19651,7 +19338,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 200.9648 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -19729,8 +19416,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30AP"
-			(at 93.98 165.1 0)
+		(property "Value" "AGM60P30A"
+			(at 92.964 165.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19740,7 +19427,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "Diode_SMD:D_QFN_3.3x3.3mm_P0.65mm"
 			(at 83.82 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -19869,87 +19556,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 72.39 64.77 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9be5f4f5-7f05-40e5-b659-268e987e533b")
-		(property "Reference" "C35"
-			(at 73.406 62.484 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100uF"
-			(at 73.66 67.31 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
-			(at 73.3552 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 72.39 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 72.39 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f6160c66-64d7-4542-bffc-84371a5497ce")
-		)
-		(pin "2"
-			(uuid "e79ce605-388a-4204-95ab-2378ccbcc5a5")
-		)
-		(instances
-			(project "ESC"
-				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
-					(reference "C35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 49.53 173.99 0)
 		(unit 1)
@@ -19971,7 +19577,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "20K"
+		(property "Value" "28K"
 			(at 50.8 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20772,7 +20378,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF"
+		(property "Value" "100nF"
 			(at 231.14 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20783,7 +20389,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 230.8352 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -20840,7 +20446,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 198.12 146.05 90)
+		(at 190.5 146.05 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -20850,7 +20456,7 @@
 		(dnp no)
 		(uuid "ba91d821-249b-4738-8d94-5d7b2ed10351")
 		(property "Reference" "#PWR063"
-			(at 201.93 146.05 0)
+			(at 194.31 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20861,7 +20467,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 195.072 146.05 90)
+			(at 187.452 146.05 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20872,7 +20478,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 198.12 146.05 0)
+			(at 190.5 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20883,7 +20489,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 198.12 146.05 0)
+			(at 190.5 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20894,7 +20500,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 198.12 146.05 0)
+			(at 190.5 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21490,7 +21096,7 @@
 				)
 			)
 		)
-		(property "Value" "162K"
+		(property "Value" "226K"
 			(at 53.34 165.1 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22206,7 +21812,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF"
+		(property "Value" "15uF"
 			(at 262.89 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22217,7 +21823,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.5852 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -22352,91 +21958,6 @@
 			(project "ESC"
 				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
 					(reference "Y1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "Q_NMOS_1")
-		(lib_id "Device:Q_NMOS")
-		(at 25.4 148.59 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d83a396c-72a7-4888-ba2c-7f65ddaabb06")
-		(property "Reference" "Q1"
-			(at 28.956 151.892 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AGM60P30AP"
-			(at 40.64 144.78 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
-			(at 30.48 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 25.4 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "N-MOSFET transistor"
-			(at 25.4 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f4c2bd33-9066-4ebe-bf1b-2c4b764f7c39")
-		)
-		(pin "1"
-			(uuid "6a7b114f-035d-4a5f-a9e2-39888d175891")
-		)
-		(pin "3"
-			(uuid "e9502f02-4745-41f2-869a-a4f021613989")
-		)
-		(instances
-			(project "ESC"
-				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
-					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -22856,7 +22377,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "1uF"
 			(at 209.55 88.9 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22994,87 +22515,6 @@
 			(project "ESC"
 				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
 					(reference "#PWR010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 40.64 64.77 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e59a05a1-9ac7-4774-b38a-6ac1cec0d67d")
-		(property "Reference" "C36"
-			(at 41.656 62.484 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100uF"
-			(at 41.91 67.31 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
-			(at 41.6052 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 40.64 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 40.64 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "337a12dc-9f87-4edc-b1ac-3140c2ac0e53")
-		)
-		(pin "2"
-			(uuid "183b790f-de86-48bb-a5a6-fe746c50f9fd")
-		)
-		(instances
-			(project "ESC"
-				(path "/4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
-					(reference "C36")
 					(unit 1)
 				)
 			)
@@ -23256,8 +22696,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30AP"
-			(at 148.59 165.1 0)
+		(property "Value" "AGM60P30A"
+			(at 147.574 165.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -23267,7 +22707,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "Diode_SMD:D_QFN_3.3x3.3mm_P0.65mm"
 			(at 138.43 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -23498,7 +22938,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "20K"
+		(property "Value" "8.45K"
 			(at 246.38 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23745,7 +23185,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "20K"
+		(property "Value" "28K"
 			(at 158.75 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23844,7 +23284,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 186.3852 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -24013,7 +23453,7 @@
 				)
 			)
 		)
-		(property "Footprint" "RTA0040B"
+		(property "Footprint" "ESC-footprints:DRV8323SRTAR"
 			(at 240.03 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -24275,7 +23715,7 @@
 		(fields_autoplaced yes)
 		(uuid "fbb1d515-8f2c-4367-bca8-6e1236bf5e4c")
 		(property "Reference" "U3"
-			(at 212.09 25.4 0)
+			(at 212.09 24.13 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -24284,8 +23724,8 @@
 				)
 			)
 		)
-		(property "Value" "LMR16006YQ"
-			(at 212.09 27.94 0)
+		(property "Value" "LMR16006X"
+			(at 212.09 26.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

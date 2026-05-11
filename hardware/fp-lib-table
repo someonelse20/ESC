@@ -1,0 +1,8 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Package_DFN_QFN") (type "KiCad") (uri "C:/Users/UTC Student/Downloads/Package_DFN_QFN.pretty") (options "") (descr ""))
+	(lib (name "DFN_QFN") (type "KiCad") (uri "${KIPRJMOD}/lib/DFN_QFN.pretty") (options "") (descr ""))
+	(lib (name "DFN_QFN") (type "KiCad") (uri "${KIPRJMOD}/lib/DFN_QFN.pretty") (options "") (descr ""))
+	(lib (name "Package_DFN_QFN") (type "KiCad") (uri "C:/Users/UTC Student/Downloads/Package_DFN_QFN.pretty") (options "") (descr ""))
+	(lib (name "ESC-footprints") (type "KiCad") (uri "${KIPRJMOD}/lib/ESC-footprints.pretty") (options "") (descr ""))
+)

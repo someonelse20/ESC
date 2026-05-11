@@ -40,8 +40,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 0.6,
-          "width": 0.9
+          "height": 0.44,
+          "width": 0.8
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -700,7 +700,7 @@
         "uuid": "4de1658d-a5e4-45f8-9b2f-349bf6ebe789"
       }
     ],
-    "used_designators": "",
+    "used_designators": "C35,R34-35,FB1,#PWR63,Q8",
     "variants": [
       {
         "description": "Simpler and cheaper but larger board.",
