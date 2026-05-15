@@ -7276,6 +7276,10 @@
 		(uuid "ff8cffa8-a93b-4555-bd52-46b075451497")
 	)
 	(no_connect
+		(at 109.22 76.2)
+		(uuid "0f437e56-614b-45ee-b8d8-ee61bce19aab")
+	)
+	(no_connect
 		(at 109.22 66.04)
 		(uuid "2a824be5-d0e9-48d1-b6ce-b58bccb052c1")
 	)
@@ -7298,6 +7302,10 @@
 	(no_connect
 		(at 109.22 63.5)
 		(uuid "9e85908d-faf2-4469-833f-24d93fbd78bc")
+	)
+	(no_connect
+		(at 109.22 104.14)
+		(uuid "cb706a20-f422-4e27-9b85-8b36f591ba86")
 	)
 	(no_connect
 		(at 109.22 96.52)
@@ -12744,8 +12752,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30A"
-			(at 147.574 144.526 0)
+		(property "Value" "AGM60P30AP"
+			(at 148.59 144.272 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14535,8 +14543,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30A"
-			(at 92.964 144.78 0)
+		(property "Value" "AGM60P30AP"
+			(at 93.98 144.526 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15245,8 +15253,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30A"
-			(at 39.624 165.1 0)
+		(property "Value" "AGM60P30AP"
+			(at 40.64 164.846 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18683,8 +18691,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30A"
-			(at 39.624 144.78 0)
+		(property "Value" "AGM60P30AP"
+			(at 40.64 144.526 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19571,8 +19579,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30A"
-			(at 92.964 165.1 0)
+		(property "Value" "AGM60P30AP"
+			(at 93.98 164.846 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22851,8 +22859,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AGM60P30A"
-			(at 147.574 165.1 0)
+		(property "Value" "AGM60P30AP"
+			(at 148.59 164.846 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
