@@ -26,7 +26,7 @@ Alternatively, leave the solder bridge on the bottom of the board open for clock
 
 ## BOM
 
-| Name       | Purpose             | Quantity | Total Cost (USD) | Link                              | Distributor |
-| ---------- | ------------------- | -------- | ---------------- | --------------------------------- | ----------- |
-| Tachometer | Test motor speed    | 1        | 21.99            | [Amazon](https://a.co/d/0gPeHyXq) | Amazon      |
-| PCB        | The assembled board | 2        | 140.29           | [JLCPCB](https://jlcpcb.com/)     | JLCPCB      |
+| Name         | Purpose                   | Quantity | Total Cost (USD) | Link                          | Distributor |
+| ------------ | ------------------------- | -------- | ---------------- | ----------------------------- | ----------- |
+| PCB          | 	The Circuit Board        | 5        | 7.00             | [JLCPCB](https://jlcpcb.com/) | JLCPCB      |
+| PCB Assembly | Assembly for the board    | 2        | 78.46            | [JLCPCB](https://jlcpcb.com/) | JLCPCB      |
